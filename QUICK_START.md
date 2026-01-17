@@ -83,6 +83,15 @@ jupyter notebook XceptionPretrained.ipynb
 
 - Uses depthwise separable convolutions; demonstrates pretrained weights
 
+### Xception Transfer Learning
+
+```bash
+jupyter notebook XceptionTransferLearning.ipynb
+```
+
+- Shows how to use pre-trained Xception model on custom datasets
+- Fast training and high performance
+
 ## Troubleshooting
 
 ### No module named 'tensorflow'
@@ -156,6 +165,7 @@ python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU')
  ├── 📓 VGGtransferLearning.ipynb     ← Production use
  ├── 📓 InceptionV3Implementation.ipynb ← InceptionV3 (if added)
  ├── 📓 XceptionPretrained.ipynb       ← Xception pretrained
+ ├── 📓 XceptionTransferLearning.ipynb ← Transfer learning with Xception
  │
  └── 🏋️  bestLeNet.h5                 ← Pre-trained model
 ```

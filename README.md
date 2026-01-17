@@ -54,6 +54,13 @@ A comprehensive collection of implementations of seminal Convolutional Neural Ne
 - **Task**: High-performance image classification using depthwise separable convolutions
 - **Key Features**: Depthwise separable convolutions, larger model capacity with efficiency
 
+### 🔄 Xception with Transfer Learning
+
+- **Notebook**: [XceptionTransferLearning.ipynb](XceptionTransferLearning.ipynb)
+- **Task**: Applying pre-trained Xception models to custom datasets
+- **Approach**: Fine-tuning and feature extraction strategies
+- **Use Cases**: Image classification on new domains with limited data
+
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -98,7 +105,8 @@ Research Papers Implementation/
 ├── VGGImplementation.ipynb            # VGGNet implementation
 ├── VGGtransferLearning.ipynb          # Transfer learning with VGG
 ├── InceptionV3Implementation.ipynb    # InceptionV3 implementation (if added)
-├── XceptionPretrained.ipynb           # Xception pretrained example
+├── XceptionPretrained.ipynb           # Xception pretrained model
+├── XceptionTransferLearning.ipynb     # Transfer learning with Xception
 │
 └── bestLeNet.h5                       # Pre-trained LeNet weights
 ```
@@ -157,12 +165,13 @@ print(f'Test Accuracy: {test_acc:.4f}')
 
 ## 📊 Model Comparison
 
-| Model   | Year | Params | Depth     | Top-1 Accuracy   |
-| ------- | ---- | ------ | --------- | ---------------- |
-| LeNet-5 | 1998 | ~60K   | 5 layers  | 99.2% (MNIST)    |
-| AlexNet | 2012 | 62.4M  | 8 layers  | 63.3% (ImageNet) |
-| VGG-16  | 2014 | 138M   | 16 layers | 71.3% (ImageNet) |
-| VGG-19  | 2014 | 144M   | 19 layers | 72.4% (ImageNet) |
+| Model       | Year | Params | Depth     | Top-1 Accuracy   |
+| ----------- | ---- | ------ | --------- | ---------------- |
+| LeNet-5     | 1998 | ~60K   | 5 layers  | 99.2% (MNIST)    |
+| AlexNet     | 2012 | 62.4M  | 8 layers  | 63.3% (ImageNet) |
+| VGG-16      | 2014 | 138M   | 16 layers | 71.3% (ImageNet) |
+| VGG-19      | 2014 | 144M   | 19 layers | 72.4% (ImageNet) |
+| Xception    | 2017 | 22.9M  | 71 layers | 79.0% (ImageNet) |
 
 ## 🤝 Contributing
 
