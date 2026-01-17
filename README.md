@@ -10,6 +10,7 @@ A comprehensive collection of implementations of seminal Convolutional Neural Ne
 ## 📚 Implemented Architectures
 
 ### 🏗️ LeNet-5 (1998)
+
 - **Paper**: [Gradient-Based Learning Applied to Document Recognition](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf)
 - **Notebook**: [LeNetImplementation.ipynb](LeNetImplementation.ipynb)
 - **Task**: Handwritten digit recognition (MNIST dataset)
@@ -17,6 +18,7 @@ A comprehensive collection of implementations of seminal Convolutional Neural Ne
 - **Model Checkpoint**: [bestLeNet.h5](bestLeNet.h5)
 
 ### 🧠 AlexNet (2012)
+
 - **Paper**: [ImageNet Classification with Deep Convolutional Neural Networks](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
 - **Notebook**: [AlexNetImplementation.ipynb](AlexNetImplementation.ipynb)
 - **Task**: ImageNet Large Scale Visual Recognition Challenge (ILSVRC)
@@ -24,6 +26,7 @@ A comprehensive collection of implementations of seminal Convolutional Neural Ne
 - **Achievement**: Breakthrough model that revolutionized computer vision
 
 ### 🏛️ VGGNet (2014)
+
 - **Paper**: [Very Deep Convolutional Networks for Large-Scale Image Recognition](https://arxiv.org/abs/1409.1556)
 - **Notebook**: [VGGImplementation.ipynb](VGGImplementation.ipynb)
 - **Task**: ImageNet classification with very deep networks
@@ -31,14 +34,30 @@ A comprehensive collection of implementations of seminal Convolutional Neural Ne
 - **Variants**: VGG-16 and VGG-19
 
 ### 🔄 VGG with Transfer Learning
+
 - **Notebook**: [VGGtransferLearning.ipynb](VGGtransferLearning.ipynb)
 - **Task**: Applying pre-trained VGG models to custom datasets
 - **Approach**: Fine-tuning and feature extraction strategies
 - **Use Cases**: Image classification on new domains with limited data
 
+### 🔬 InceptionV3 (2015)
+
+- **Paper**: [Rethinking the Inception Architecture for Computer Vision](https://arxiv.org/abs/1512.00567)
+- **Notebook**: `InceptionV3Implementation.ipynb` (add to repo if not present)
+- **Task**: Image classification with efficient inception modules
+- **Key Features**: Factorized convolutions, aggressive regularization, auxiliary classifiers
+
+### ✨ Xception (2017)
+
+- **Paper**: [Xception: Deep Learning with Depthwise Separable Convolutions](https://arxiv.org/abs/1610.02357)
+- **Notebook**: [XceptionPretrained.ipynb](XceptionPretrained.ipynb)
+- **Task**: High-performance image classification using depthwise separable convolutions
+- **Key Features**: Depthwise separable convolutions, larger model capacity with efficiency
+
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - Python 3.8 or higher
 - pip package manager
 - Git
@@ -78,26 +97,29 @@ Research Papers Implementation/
 ├── AlexNetImplementation.ipynb        # AlexNet implementation
 ├── VGGImplementation.ipynb            # VGGNet implementation
 ├── VGGtransferLearning.ipynb          # Transfer learning with VGG
+├── InceptionV3Implementation.ipynb    # InceptionV3 implementation (if added)
+├── XceptionPretrained.ipynb           # Xception pretrained example
 │
 └── bestLeNet.h5                       # Pre-trained LeNet weights
 ```
 
 ## 📦 Dependencies
 
-| Package | Version | Purpose |
-|---------|---------|---------|
-| TensorFlow | 2.13+ | Deep learning framework |
-| Keras | 2.13+ | High-level neural networks API |
-| NumPy | 1.24+ | Numerical computations |
-| Matplotlib | 3.7+ | Data visualization |
-| Pandas | 2.0+ | Data manipulation |
-| Scikit-learn | 1.3+ | ML utilities & metrics |
-| Jupyter | 1.0+ | Interactive notebooks |
-| Pillow | 10.0+ | Image processing |
+| Package      | Version | Purpose                        |
+| ------------ | ------- | ------------------------------ |
+| TensorFlow   | 2.13+   | Deep learning framework        |
+| Keras        | 2.13+   | High-level neural networks API |
+| NumPy        | 1.24+   | Numerical computations         |
+| Matplotlib   | 3.7+    | Data visualization             |
+| Pandas       | 2.0+    | Data manipulation              |
+| Scikit-learn | 1.3+    | ML utilities & metrics         |
+| Jupyter      | 1.0+    | Interactive notebooks          |
+| Pillow       | 10.0+   | Image processing               |
 
 ## 🎯 Getting Started with Each Model
 
 ### Running LeNet
+
 ```python
 # Data loading
 from tensorflow.keras.datasets import mnist
@@ -116,6 +138,7 @@ print(f'Test Accuracy: {test_acc:.4f}')
 ```
 
 ### Running AlexNet & VGG
+
 - Similar workflow to LeNet
 - Typically use ImageNet or custom datasets
 - Longer training time due to model depth
@@ -134,18 +157,19 @@ print(f'Test Accuracy: {test_acc:.4f}')
 
 ## 📊 Model Comparison
 
-| Model | Year | Params | Depth | Top-1 Accuracy |
-|-------|------|--------|-------|-----------------|
-| LeNet-5 | 1998 | ~60K | 5 layers | 99.2% (MNIST) |
-| AlexNet | 2012 | 62.4M | 8 layers | 63.3% (ImageNet) |
-| VGG-16 | 2014 | 138M | 16 layers | 71.3% (ImageNet) |
-| VGG-19 | 2014 | 144M | 19 layers | 72.4% (ImageNet) |
+| Model   | Year | Params | Depth     | Top-1 Accuracy   |
+| ------- | ---- | ------ | --------- | ---------------- |
+| LeNet-5 | 1998 | ~60K   | 5 layers  | 99.2% (MNIST)    |
+| AlexNet | 2012 | 62.4M  | 8 layers  | 63.3% (ImageNet) |
+| VGG-16  | 2014 | 138M   | 16 layers | 71.3% (ImageNet) |
+| VGG-19  | 2014 | 144M   | 19 layers | 72.4% (ImageNet) |
 
 ## 🤝 Contributing
 
 We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ### How to Contribute
+
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature/YourFeature`
 3. Commit changes: `git commit -m 'Add YourFeature'`
@@ -155,34 +179,41 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guid
 ## 📚 Learning Resources
 
 ### Foundational Papers
+
 - [LeNet Paper](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf) - Gradient-Based Learning
 - [AlexNet Paper](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf) - ImageNet Classification
 - [VGGNet Paper](https://arxiv.org/abs/1409.1556) - Very Deep Convolutional Networks
 
 ### Online Courses
+
 - Fast.ai: Practical Deep Learning
 - Andrew Ng's Deep Learning Specialization
 - Stanford CS231n: Convolutional Neural Networks for Visual Recognition
 
 ### Books
+
 - "Deep Learning" by Goodfellow, Bengio, Courville
 - "Hands-On Machine Learning" by Aurélien Géron
 
 ## 🐛 Troubleshooting
 
 ### GPU Support
+
 To enable GPU acceleration:
+
 ```bash
 pip install tensorflow[and-cuda]  # For NVIDIA GPUs
 ```
 
 ### Out of Memory Errors
+
 - Reduce batch size in model.fit()
 - Reduce image resolution
 - Use gradient checkpointing
 - Try mixed precision training
 
 ### Slow Training
+
 - Check if GPU is being used: `tf.config.list_physical_devices('GPU')`
 - Ensure data preprocessing is efficient
 - Use data augmentation on-the-fly
@@ -192,6 +223,7 @@ See [setup.md](setup.md#troubleshooting) for more solutions.
 ## 📈 Performance Metrics
 
 Each notebook includes:
+
 - **Training & Validation Curves**: Loss and accuracy plots
 - **Confusion Matrices**: Per-class performance analysis
 - **Precision, Recall, F1-Score**: Detailed classification metrics
@@ -218,6 +250,7 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for detai
 ## 🌟 Citation
 
 If you use this implementation in your research, please cite:
+
 ```bibtex
 @software{cnn_implementations_2024,
   title={Research Papers Implementation: Classic CNN Architectures with Keras},
@@ -231,5 +264,5 @@ If you use this implementation in your research, please cite:
 
 **Happy Learning! 🚀**
 
-*Last Updated: January 2024*  
-*Status: Active Development*
+_Last Updated: January 17, 2026_  
+_Status: Active Development_

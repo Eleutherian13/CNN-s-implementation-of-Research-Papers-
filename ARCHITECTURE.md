@@ -5,16 +5,20 @@ Detailed technical documentation of all implemented CNN architectures with their
 ---
 
 ## Table of Contents
+
 1. [LeNet-5](#lenet-5)
 2. [AlexNet](#alexnet)
 3. [VGGNet](#vggnet)
-4. [Comparison](#comparison)
+4. [InceptionV3](#inceptionv3)
+5. [Xception](#xception)
+6. [Comparison](#comparison)
 
 ---
 
 ## LeNet-5
 
 ### Overview
+
 **Year**: 1998  
 **Authors**: Yann LeCun, Léon Bottou, Yoann Bengio, Patrick Haffner  
 **Paper**: [Gradient-Based Learning Applied to Document Recognition](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf)  
@@ -41,16 +45,16 @@ Output (10 classes)
 
 ### Layer Details
 
-| Layer | Type | Filters | Kernel | Stride | Output | Parameters |
-|-------|------|---------|--------|--------|--------|-----------|
-| Input | - | 1 | - | - | 28×28×1 | 0 |
-| Conv1 | Conv2D | 6 | 5×5 | 1 | 24×24×6 | 156 |
-| Pool1 | MaxPool | - | 2×2 | 2 | 12×12×6 | 0 |
-| Conv2 | Conv2D | 16 | 5×5 | 1 | 8×8×16 | 2,416 |
-| Pool2 | MaxPool | - | 2×2 | 2 | 4×4×16 | 0 |
-| Conv3 | Conv2D | 120 | 5×5 | 1 | 1×1×120 | 48,120 |
-| Dense1 | Dense | 84 | - | - | 84 | 10,164 |
-| Dense2 | Dense | 10 | - | - | 10 | 850 |
+| Layer  | Type    | Filters | Kernel | Stride | Output  | Parameters |
+| ------ | ------- | ------- | ------ | ------ | ------- | ---------- |
+| Input  | -       | 1       | -      | -      | 28×28×1 | 0          |
+| Conv1  | Conv2D  | 6       | 5×5    | 1      | 24×24×6 | 156        |
+| Pool1  | MaxPool | -       | 2×2    | 2      | 12×12×6 | 0          |
+| Conv2  | Conv2D  | 16      | 5×5    | 1      | 8×8×16  | 2,416      |
+| Pool2  | MaxPool | -       | 2×2    | 2      | 4×4×16  | 0          |
+| Conv3  | Conv2D  | 120     | 5×5    | 1      | 1×1×120 | 48,120     |
+| Dense1 | Dense   | 84      | -      | -      | 84      | 10,164     |
+| Dense2 | Dense   | 10      | -      | -      | 10      | 850        |
 
 **Total Parameters**: ~60,000
 
@@ -104,6 +108,7 @@ Data Augmentation: None (minimal in original)
 ## AlexNet
 
 ### Overview
+
 **Year**: 2012  
 **Authors**: Alex Krizhevsky, Ilya Sutskever, Geoffrey E. Hinton  
 **Paper**: [ImageNet Classification with Deep Convolutional Neural Networks](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)  
@@ -137,19 +142,19 @@ Output (1000 classes)
 
 ### Layer Details
 
-| Layer | Type | Filters | Kernel | Stride | Padding | Output | Parameters |
-|-------|------|---------|--------|--------|---------|--------|-----------|
-| Conv1 | Conv2D | 96 | 11×11 | 4 | 0 | 55×55×96 | 34,848 |
-| Pool1 | MaxPool | - | 3×3 | 2 | - | 27×27×96 | 0 |
-| Conv2 | Conv2D | 256 | 5×5 | 1 | 2 | 27×27×256 | 614,400 |
-| Pool2 | MaxPool | - | 3×3 | 2 | - | 13×13×256 | 0 |
-| Conv3 | Conv2D | 384 | 3×3 | 1 | 1 | 13×13×384 | 884,992 |
-| Conv4 | Conv2D | 384 | 3×3 | 1 | 1 | 13×13×384 | 1,327,104 |
-| Conv5 | Conv2D | 256 | 3×3 | 1 | 1 | 13×13×256 | 884,992 |
-| Pool5 | MaxPool | - | 3×3 | 2 | - | 6×6×256 | 0 |
-| Dense1 | Dense | 4096 | - | - | - | 4096 | 37,748,736 |
-| Dense2 | Dense | 4096 | - | - | - | 4096 | 16,777,216 |
-| Dense3 | Dense | 1000 | - | - | - | 1000 | 4,097,000 |
+| Layer  | Type    | Filters | Kernel | Stride | Padding | Output    | Parameters |
+| ------ | ------- | ------- | ------ | ------ | ------- | --------- | ---------- |
+| Conv1  | Conv2D  | 96      | 11×11  | 4      | 0       | 55×55×96  | 34,848     |
+| Pool1  | MaxPool | -       | 3×3    | 2      | -       | 27×27×96  | 0          |
+| Conv2  | Conv2D  | 256     | 5×5    | 1      | 2       | 27×27×256 | 614,400    |
+| Pool2  | MaxPool | -       | 3×3    | 2      | -       | 13×13×256 | 0          |
+| Conv3  | Conv2D  | 384     | 3×3    | 1      | 1       | 13×13×384 | 884,992    |
+| Conv4  | Conv2D  | 384     | 3×3    | 1      | 1       | 13×13×384 | 1,327,104  |
+| Conv5  | Conv2D  | 256     | 3×3    | 1      | 1       | 13×13×256 | 884,992    |
+| Pool5  | MaxPool | -       | 3×3    | 2      | -       | 6×6×256   | 0          |
+| Dense1 | Dense   | 4096    | -      | -      | -       | 4096      | 37,748,736 |
+| Dense2 | Dense   | 4096    | -      | -      | -       | 4096      | 16,777,216 |
+| Dense3 | Dense   | 1000    | -      | -      | -       | 1000      | 4,097,000  |
 
 **Total Parameters**: ~62.4 million
 
@@ -229,6 +234,7 @@ Data Augmentation: Random crops + flips
 ## VGGNet
 
 ### Overview
+
 **Year**: 2014  
 **Authors**: Karen Simonyan, Andrew Zisserman (Visual Geometry Group, University of Oxford)  
 **Paper**: [Very Deep Convolutional Networks for Large-Scale Image Recognition](https://arxiv.org/abs/1409.1556)  
@@ -287,29 +293,29 @@ Output (1000 classes)
 
 ### VGG-16 Layer Details
 
-| Block | Layer | Filters | Kernel | Input | Output | Parameters |
-|-------|-------|---------|--------|-------|--------|-----------|
-| 1 | Conv2d | 64 | 3×3 | 224×224×3 | 224×224×64 | 1,792 |
-| 1 | Conv2d | 64 | 3×3 | 224×224×64 | 224×224×64 | 36,928 |
-| 1 | MaxPool | - | 2×2 | 224×224×64 | 112×112×64 | 0 |
-| 2 | Conv2d | 128 | 3×3 | 112×112×64 | 112×112×128 | 73,856 |
-| 2 | Conv2d | 128 | 3×3 | 112×112×128 | 112×112×128 | 147,584 |
-| 2 | MaxPool | - | 2×2 | 112×112×128 | 56×56×128 | 0 |
-| 3 | Conv2d | 256 | 3×3 | 56×56×128 | 56×56×256 | 295,168 |
-| 3 | Conv2d | 256 | 3×3 | 56×56×256 | 56×56×256 | 590,080 |
-| 3 | Conv2d | 256 | 3×3 | 56×56×256 | 56×56×256 | 590,080 |
-| 3 | MaxPool | - | 2×2 | 56×56×256 | 28×28×256 | 0 |
-| 4 | Conv2d | 512 | 3×3 | 28×28×256 | 28×28×512 | 1,180,160 |
-| 4 | Conv2d | 512 | 3×3 | 28×28×512 | 28×28×512 | 2,359,808 |
-| 4 | Conv2d | 512 | 3×3 | 28×28×512 | 28×28×512 | 2,359,808 |
-| 4 | MaxPool | - | 2×2 | 28×28×512 | 14×14×512 | 0 |
-| 5 | Conv2d | 512 | 3×3 | 14×14×512 | 14×14×512 | 2,359,808 |
-| 5 | Conv2d | 512 | 3×3 | 14×14×512 | 14×14×512 | 2,359,808 |
-| 5 | Conv2d | 512 | 3×3 | 14×14×512 | 14×14×512 | 2,359,808 |
-| 5 | MaxPool | - | 2×2 | 14×14×512 | 7×7×512 | 0 |
-| Dense | - | 4096 | - | 7×7×512 | 4096 | 102,764,544 |
-| Dense | - | 4096 | - | 4096 | 4096 | 16,781,312 |
-| Dense | - | 1000 | - | 4096 | 1000 | 4,097,000 |
+| Block | Layer   | Filters | Kernel | Input       | Output      | Parameters  |
+| ----- | ------- | ------- | ------ | ----------- | ----------- | ----------- |
+| 1     | Conv2d  | 64      | 3×3    | 224×224×3   | 224×224×64  | 1,792       |
+| 1     | Conv2d  | 64      | 3×3    | 224×224×64  | 224×224×64  | 36,928      |
+| 1     | MaxPool | -       | 2×2    | 224×224×64  | 112×112×64  | 0           |
+| 2     | Conv2d  | 128     | 3×3    | 112×112×64  | 112×112×128 | 73,856      |
+| 2     | Conv2d  | 128     | 3×3    | 112×112×128 | 112×112×128 | 147,584     |
+| 2     | MaxPool | -       | 2×2    | 112×112×128 | 56×56×128   | 0           |
+| 3     | Conv2d  | 256     | 3×3    | 56×56×128   | 56×56×256   | 295,168     |
+| 3     | Conv2d  | 256     | 3×3    | 56×56×256   | 56×56×256   | 590,080     |
+| 3     | Conv2d  | 256     | 3×3    | 56×56×256   | 56×56×256   | 590,080     |
+| 3     | MaxPool | -       | 2×2    | 56×56×256   | 28×28×256   | 0           |
+| 4     | Conv2d  | 512     | 3×3    | 28×28×256   | 28×28×512   | 1,180,160   |
+| 4     | Conv2d  | 512     | 3×3    | 28×28×512   | 28×28×512   | 2,359,808   |
+| 4     | Conv2d  | 512     | 3×3    | 28×28×512   | 28×28×512   | 2,359,808   |
+| 4     | MaxPool | -       | 2×2    | 28×28×512   | 14×14×512   | 0           |
+| 5     | Conv2d  | 512     | 3×3    | 14×14×512   | 14×14×512   | 2,359,808   |
+| 5     | Conv2d  | 512     | 3×3    | 14×14×512   | 14×14×512   | 2,359,808   |
+| 5     | Conv2d  | 512     | 3×3    | 14×14×512   | 14×14×512   | 2,359,808   |
+| 5     | MaxPool | -       | 2×2    | 14×14×512   | 7×7×512     | 0           |
+| Dense | -       | 4096    | -      | 7×7×512     | 4096        | 102,764,544 |
+| Dense | -       | 4096    | -      | 4096        | 4096        | 16,781,312  |
+| Dense | -       | 1000    | -      | 4096        | 1000        | 4,097,000   |
 
 **Total VGG-16 Parameters**: ~138 million  
 **Total VGG-19 Parameters**: ~144 million
@@ -365,17 +371,17 @@ Data Augmentation:
 
 ### VGG-16 vs VGG-19
 
-| Aspect | VGG-16 | VGG-19 |
-|--------|--------|--------|
-| Convolutional Layers | 13 | 16 |
-| Fully Connected Layers | 3 | 3 |
-| Total Layers | 16 | 19 |
-| Parameters | 138M | 144M |
-| Block 3 Convs | 3 | 4 |
-| Block 4 Convs | 3 | 4 |
-| Block 5 Convs | 3 | 4 |
-| Top-1 Accuracy | 71.3% | 71.0% |
-| Top-5 Accuracy | 89.8% | 89.9% |
+| Aspect                 | VGG-16 | VGG-19 |
+| ---------------------- | ------ | ------ |
+| Convolutional Layers   | 13     | 16     |
+| Fully Connected Layers | 3      | 3      |
+| Total Layers           | 16     | 19     |
+| Parameters             | 138M   | 144M   |
+| Block 3 Convs          | 3      | 4      |
+| Block 4 Convs          | 3      | 4      |
+| Block 5 Convs          | 3      | 4      |
+| Top-1 Accuracy         | 71.3%  | 71.0%  |
+| Top-5 Accuracy         | 89.8%  | 89.9%  |
 
 ### Expected Performance
 
@@ -411,39 +417,80 @@ augmentation = Sequential([
 
 ---
 
-## Comparison
+## InceptionV3
+
+### Overview
+
+**Year**: 2015  
+**Paper**: [Rethinking the Inception Architecture for Computer Vision](https://arxiv.org/abs/1512.00567)  
+**Task**: Image classification (ImageNet)  
+**Key Features**: Inception modules with factorized convolutions, label smoothing, auxiliary classifiers, and efficient grid-size reductions.
+
+### Architecture Notes
+
+- Uses factorized 7×7 convolutions and asymmetric convolutions (1×7 followed by 7×1) to reduce computation.
+- Employs batch normalization extensively and aggressive regularization.
+- Auxiliary classifiers improve gradient flow during training.
+
+### Implementation Tips
+
+- Use `tf.keras.applications.InceptionV3(weights='imagenet')` for pretrained weights.
+- Input size: typically 299×299×3.
+
+---
+
+## Xception
+
+### Overview
+
+**Year**: 2017  
+**Paper**: [Xception: Deep Learning with Depthwise Separable Convolutions](https://arxiv.org/abs/1610.02357)  
+**Task**: Image classification (ImageNet)  
+**Key Features**: Depthwise separable convolutions as an extreme version of Inception modules, yielding efficient models with good accuracy.
+
+### Architecture Notes
+
+- Replaces Inception modules with depthwise separable convolutions across the network.
+- Often achieves similar or better performance with fewer parameters compared to traditional architectures.
+
+### Implementation Tips
+
+- Use `tf.keras.applications.Xception(weights='imagenet')` for pretrained weights.
+- Input size: typically 299×299×3.
+
+---
 
 ### Architecture Comparison
 
-| Aspect | LeNet-5 | AlexNet | VGG-16 | VGG-19 |
-|--------|---------|---------|--------|--------|
-| **Year** | 1998 | 2012 | 2014 | 2014 |
-| **Depth** | 5 layers | 8 layers | 16 layers | 19 layers |
-| **Parameters** | 60K | 62.4M | 138M | 144M |
-| **Conv Kernels** | 5×5, fixed | 11×5, 3×3 | 3×3 (uniform) | 3×3 (uniform) |
-| **Input Size** | 28×28 | 227×227 | 224×224 | 224×224 |
-| **Activation** | Tanh → ReLU | ReLU | ReLU | ReLU |
-| **Regularization** | None → Dropout | Dropout, LRN | Dropout | Dropout |
-| **Bottleneck** | None | None | None | None |
-| **Skip Connections** | No | No | No | No |
+| Aspect               | LeNet-5        | AlexNet      | VGG-16        | VGG-19        |
+| -------------------- | -------------- | ------------ | ------------- | ------------- |
+| **Year**             | 1998           | 2012         | 2014          | 2014          |
+| **Depth**            | 5 layers       | 8 layers     | 16 layers     | 19 layers     |
+| **Parameters**       | 60K            | 62.4M        | 138M          | 144M          |
+| **Conv Kernels**     | 5×5, fixed     | 11×5, 3×3    | 3×3 (uniform) | 3×3 (uniform) |
+| **Input Size**       | 28×28          | 227×227      | 224×224       | 224×224       |
+| **Activation**       | Tanh → ReLU    | ReLU         | ReLU          | ReLU          |
+| **Regularization**   | None → Dropout | Dropout, LRN | Dropout       | Dropout       |
+| **Bottleneck**       | None           | None         | None          | None          |
+| **Skip Connections** | No             | No           | No            | No            |
 
 ### Performance Comparison
 
-| Dataset | LeNet-5 | AlexNet | VGG-16 | VGG-19 |
-|---------|---------|---------|--------|--------|
-| **MNIST** | 99.2% | N/A | N/A | N/A |
-| **ImageNet Top-1** | N/A | 63.3% | 71.3% | 71.0% |
-| **ImageNet Top-5** | N/A | 85.2% | 89.8% | 89.9% |
-| **Training Time** | Hours | Days | Weeks | Weeks |
+| Dataset            | LeNet-5 | AlexNet | VGG-16 | VGG-19 |
+| ------------------ | ------- | ------- | ------ | ------ |
+| **MNIST**          | 99.2%   | N/A     | N/A    | N/A    |
+| **ImageNet Top-1** | N/A     | 63.3%   | 71.3%  | 71.0%  |
+| **ImageNet Top-5** | N/A     | 85.2%   | 89.8%  | 89.9%  |
+| **Training Time**  | Hours   | Days    | Weeks  | Weeks  |
 
 ### Computational Efficiency
 
-| Model | FLOPs | Memory | Speed |
-|-------|-------|--------|-------|
-| LeNet-5 | ~20M | ~1 MB | Very Fast |
-| AlexNet | ~1.5B | ~100 MB | Fast |
-| VGG-16 | ~15B | ~140 MB | Slow |
-| VGG-19 | ~19B | ~150 MB | Slower |
+| Model   | FLOPs | Memory  | Speed     |
+| ------- | ----- | ------- | --------- |
+| LeNet-5 | ~20M  | ~1 MB   | Very Fast |
+| AlexNet | ~1.5B | ~100 MB | Fast      |
+| VGG-16  | ~15B  | ~140 MB | Slow      |
+| VGG-19  | ~19B  | ~150 MB | Slower    |
 
 ### Key Evolutionary Steps
 
@@ -473,6 +520,7 @@ GoogLeNet (2014)
 ### VGG Transfer Learning Strategies
 
 **Strategy 1: Feature Extraction (Frozen Backbone)**
+
 ```python
 # Load pre-trained VGG
 base_model = tf.keras.applications.VGG16(
@@ -495,6 +543,7 @@ model = Sequential([
 ```
 
 **Strategy 2: Fine-Tuning (Partial Unfreezing)**
+
 ```python
 # Freeze initial layers, unfreeze later layers
 for layer in base_model.layers[:-4]:
@@ -508,6 +557,7 @@ optimizer = Adam(learning_rate=1e-5)
 ```
 
 **Strategy 3: Full Fine-Tuning**
+
 ```python
 # Unfreeze all layers
 base_model.trainable = True
@@ -521,15 +571,18 @@ optimizer = Adam(learning_rate=1e-6)
 ## References
 
 ### Original Papers
+
 1. LeNet: http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf
 2. AlexNet: https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf
 3. VGGNet: https://arxiv.org/abs/1409.1556
 
 ### Implementations
+
 - [TensorFlow/Keras Documentation](https://www.tensorflow.org/api_docs/python/tf/keras/applications)
 - [Torchvision Models](https://pytorch.org/vision/stable/models.html)
 
 ### Related Architectures
+
 - ResNet (2015): Residual connections for very deep networks
 - Inception/GoogLeNet (2014): Multi-scale feature extraction
 - MobileNet: Efficient networks for mobile devices
@@ -537,4 +590,4 @@ optimizer = Adam(learning_rate=1e-6)
 
 ---
 
-*Last Updated: January 2024*
+_Last Updated: January 2024_

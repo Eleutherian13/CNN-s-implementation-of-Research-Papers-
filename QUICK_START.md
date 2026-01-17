@@ -28,56 +28,85 @@ jupyter notebook
 ## Run Models
 
 ### LeNet-5 (Easiest - Start Here!)
+
 ```bash
 jupyter notebook LeNetImplementation.ipynb
 ```
+
 - MNIST dataset (~50 MB)
 - Training time: 2-5 minutes
 - Expected accuracy: 99%
 
 ### AlexNet
+
 ```bash
 jupyter notebook AlexNetImplementation.ipynb
 ```
+
 - ImageNet-like dataset
 - Training time: 30+ minutes (GPU recommended)
 - Expected accuracy: 63%+
 
 ### VGGNet
+
 ```bash
 jupyter notebook VGGImplementation.ipynb
 ```
+
 - ImageNet dataset
 - Training time: Hours (GPU strongly recommended)
 - Expected accuracy: 70%+
 
 ### Transfer Learning
+
 ```bash
 jupyter notebook VGGtransferLearning.ipynb
 ```
+
 - Shows how to use pre-trained models
 - Fast training on custom datasets
 - Great for production use
 
+### InceptionV3
+
+```bash
+jupyter notebook InceptionV3Implementation.ipynb
+```
+
+- Input size: 299×299, uses Inception modules
+
+### Xception
+
+```bash
+jupyter notebook XceptionPretrained.ipynb
+```
+
+- Uses depthwise separable convolutions; demonstrates pretrained weights
+
 ## Troubleshooting
 
 ### No module named 'tensorflow'
+
 ```bash
 pip install -r requirements.txt
 ```
 
 ### Out of Memory
+
 Edit notebook and reduce batch size:
+
 ```python
 model.fit(x_train, y_train, batch_size=32)  # Try 16 or 8
 ```
 
 ### GPU not detected
+
 ```bash
 pip install tensorflow[and-cuda]
 ```
 
 ### Port already in use
+
 ```bash
 jupyter notebook --port 8889
 ```
@@ -125,6 +154,8 @@ python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU')
  ├── 📓 AlexNetImplementation.ipynb   ← Advanced
  ├── 📓 VGGImplementation.ipynb       ← Very advanced
  ├── 📓 VGGtransferLearning.ipynb     ← Production use
+ ├── 📓 InceptionV3Implementation.ipynb ← InceptionV3 (if added)
+ ├── 📓 XceptionPretrained.ipynb       ← Xception pretrained
  │
  └── 🏋️  bestLeNet.h5                 ← Pre-trained model
 ```
@@ -136,7 +167,7 @@ python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU')
 ✅ **Well-Documented** - Every model explained  
 ✅ **Modern Keras** - Uses latest TensorFlow 2.13+  
 ✅ **GPU Support** - NVIDIA CUDA acceleration  
-✅ **Active Development** - Community contributions welcome  
+✅ **Active Development** - Community contributions welcome
 
 ## Resources
 
