@@ -92,6 +92,26 @@ jupyter notebook XceptionTransferLearning.ipynb
 - Shows how to use pre-trained Xception model on custom datasets
 - Fast training and high performance
 
+### ResNet Implementation
+
+```bash
+jupyter notebook ResnetImplementation.ipynb
+```
+
+- Core ResNet-50, 101, 152 architecture implementation
+- ImageNet classification
+- Training time: 1-2 hours (GPU recommended)
+
+### ResNet Transfer Learning
+
+```bash
+jupyter notebook ResNet_Transfer_RockPaperScissors.ipynb
+```
+
+- Transfer learning example on custom dataset (Rock-Paper-Scissors)
+- Great for production use with small training datasets
+- Training time: 10-30 minutes (GPU recommended)
+
 ## Troubleshooting
 
 ### No module named 'tensorflow'
@@ -166,6 +186,8 @@ python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU')
  ├── 📓 InceptionV3Implementation.ipynb ← InceptionV3 (if added)
  ├── 📓 XceptionPretrained.ipynb       ← Xception pretrained
  ├── 📓 XceptionTransferLearning.ipynb ← Transfer learning with Xception
+ ├── 📓 ResnetImplementation.ipynb     ← ResNet core implementation
+ ├── 📓 ResNet_Transfer_RockPaperScissors.ipynb ← ResNet transfer learning
  │
  └── 🏋️  bestLeNet.h5                 ← Pre-trained model
 ```

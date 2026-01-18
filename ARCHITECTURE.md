@@ -11,9 +11,8 @@ Detailed technical documentation of all implemented CNN architectures with their
 3. [VGGNet](#vggnet)
 4. [InceptionV3](#inceptionv3)
 5. [Xception](#xception)
-6. [Xception Transfer Learning](#xception-transfer-learning)
-7. [Transfer Learning](#transfer-learning)
-8. [Comparison](#comparison)
+6. [ResNet](#resnet)
+7. [Comparison](#comparison)
 
 ---
 
@@ -464,26 +463,26 @@ augmentation = Sequential([
 
 ### Architecture Comparison
 
-| Aspect               | LeNet-5        | AlexNet      | VGG-16        | VGG-19        | Xception      |
-| -------------------- | -------------- | ------------ | ------------- | ------------- | ------------- |
-| **Year**             | 1998           | 2012         | 2014          | 2014          | 2017          |
-| **Depth**            | 5 layers       | 8 layers     | 16 layers     | 19 layers     | 71 layers     |
-| **Parameters**       | 60K            | 62.4M        | 138M          | 144M          | 22.9M         |
-| **Conv Kernels**     | 5×5, fixed     | 11×5, 3×3    | 3×3 (uniform) | 3×3 (uniform) | 3×3 sep.conv. |
-| **Input Size**       | 28×28          | 227×227      | 224×224       | 224×224       | 299×299       |
-| **Activation**       | Tanh → ReLU    | ReLU         | ReLU          | ReLU          | ReLU          |
-| **Regularization**   | None → Dropout | Dropout, LRN | Dropout       | Dropout       | Batch Norm    |
-| **Bottleneck**       | None           | None         | None          | None          | Yes (1x1)     |
-| **Skip Connections** | No             | No           | No            | No            | Yes (early)   |
+| Aspect               | LeNet-5        | AlexNet      | VGG-16        | VGG-19        | Xception      | ResNet-50     |
+| -------------------- | -------------- | ------------ | ------------- | ------------- | ------------- | ------------- |
+| **Year**             | 1998           | 2012         | 2014          | 2014          | 2017          | 2015          |
+| **Depth**            | 5 layers       | 8 layers     | 16 layers     | 19 layers     | 71 layers     | 50 layers     |
+| **Parameters**       | 60K            | 62.4M        | 138M          | 144M          | 22.9M         | 25.5M         |
+| **Conv Kernels**     | 5×5, fixed     | 11×5, 3×3    | 3×3 (uniform) | 3×3 (uniform) | 3×3 sep.conv. | 1×1, 3×3, 1×1 |
+| **Input Size**       | 28×28          | 227×227      | 224×224       | 224×224       | 299×299       | 224×224       |
+| **Activation**       | Tanh → ReLU    | ReLU         | ReLU          | ReLU          | ReLU          | ReLU          |
+| **Regularization**   | None → Dropout | Dropout, LRN | Dropout       | Dropout       | Batch Norm    | Batch Norm    |
+| **Bottleneck**       | None           | None         | None          | None          | Yes (1x1)     | Yes (1×1→3×3→1×1) |
+| **Skip Connections** | No             | No           | No            | No            | Yes (early)   | Yes (residual blocks) |
 
 ### Performance Comparison
 
-| Dataset            | LeNet-5 | AlexNet | VGG-16 | VGG-19 | Xception |
-| ------------------ | ------- | ------- | ------ | ------ | -------- |
-| **MNIST**          | 99.2%   | N/A     | N/A    | N/A    | N/A      |
-| **ImageNet Top-1** | N/A     | 63.3%   | 71.3%  | 71.0%  | 79.0%    |
-| **ImageNet Top-5** | N/A     | 85.2%   | 89.8%  | 89.9%  | 94.5%    |
-| **Training Time**  | Hours   | Days    | Weeks  | Weeks  | Days     |
+| Dataset            | LeNet-5 | AlexNet | VGG-16 | VGG-19 | Xception | ResNet-50 |
+| ------------------ | ------- | ------- | ------ | ------ | -------- | --------- |
+| **MNIST**          | 99.2%   | N/A     | N/A    | N/A    | N/A      | N/A       |
+| **ImageNet Top-1** | N/A     | 63.3%   | 71.3%  | 71.0%  | 79.0%    | 76.0%     |
+| **ImageNet Top-5** | N/A     | 85.2%   | 89.8%  | 89.9%  | 94.5%    | 92.2%     |
+| **Training Time**  | Hours   | Days    | Weeks  | Weeks  | Days     | Days      |
 
 ### Computational Efficiency
 
@@ -494,6 +493,7 @@ augmentation = Sequential([
 | VGG-16      | ~15B  | ~140 MB | Slow      |
 | VGG-19      | ~19B  | ~150 MB | Slower    |
 | Xception    | ~8.4B | ~90 MB  | Medium    |
+| ResNet-50   | ~4.1B | ~100 MB | Fast      |
 
 ### Key Evolutionary Steps
 
@@ -669,6 +669,191 @@ model.fit(train_data, epochs=100)
 
 ---
 
+## ResNet
+
+### Overview
+
+**Year**: 2015  
+**Paper**: [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)  
+**Authors**: Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun (Microsoft Research)  
+**Competition**: ILSVRC 2015  
+**Achievement**: Won 1st place with 3.57% error rate on ImageNet test set  
+**Task**: Image classification with very deep networks (up to 152 layers)  
+**Key Innovation**: Skip connections (residual blocks) solving the vanishing gradient problem
+
+### Architecture Overview
+
+**Core Concept: Residual Block**
+
+Traditional deep networks have diminishing returns with depth due to vanishing gradients. ResNet introduces **skip connections** that allow information to flow directly:
+
+$$y = F(x) + x$$
+
+Instead of learning the full transformation, the network learns the **residual** $F(x) = y - x$.
+
+**Building Block Types**
+
+1. **Basic Block** (ResNet-18, 34)
+```
+Input → Conv(3×3) → ReLU → Conv(3×3) → Add ↗
+   ↓________________________________________________↓
+```
+
+2. **Bottleneck Block** (ResNet-50, 101, 152)
+```
+Input → Conv(1×1) → Conv(3×3) → Conv(1×1) → Add ↗
+   ↓_________________________________↓
+```
+
+### ResNet Variants
+
+| Variant | Layers | Blocks | Parameters | FLOPs | Top-1 Acc |
+|---------|--------|--------|-----------|-------|-----------|
+| ResNet-18 | 18 | 2+2+2+2 | 11.7M | 1.8B | 69.8% |
+| ResNet-34 | 34 | 3+4+6+3 | 21.8M | 3.7B | 73.3% |
+| ResNet-50 | 50 | 3+4+6+3 | 25.5M | 4.1B | 76.0% |
+| ResNet-101 | 101 | 3+4+23+3 | 44.5M | 7.8B | 77.4% |
+| ResNet-152 | 152 | 3+8+36+3 | 60.2M | 11.3B | 77.6% |
+
+### ResNet-50 Architecture Details
+
+```
+Input (224×224×3)
+    ↓
+Conv (7×7, stride=2, 64 filters) → BatchNorm → ReLU → MaxPool(3×3, stride=2)
+    ↓ (56×56×64)
+Layer1: 3× Bottleneck(64→256) with stride=1
+    ↓ (56×56×256)
+Layer2: 4× Bottleneck(128→512) with stride=2
+    ↓ (28×28×512)
+Layer3: 6× Bottleneck(256→1024) with stride=2
+    ↓ (14×14×1024)
+Layer4: 3× Bottleneck(512→2048) with stride=2
+    ↓ (7×7×2048)
+GlobalAveragePooling → Flatten
+    ↓ (2048)
+Dense (1000 classes) → Softmax
+    ↓
+Output (1000 classes)
+```
+
+### Key Improvements Over VGG
+
+| Aspect | VGG-16 | ResNet-50 |
+|--------|--------|-----------|
+| Depth | 16 layers | 50 layers |
+| Parameters | 138M | 25.5M |
+| FLOPs | 15.3B | 4.1B |
+| ImageNet Top-1 | 71.3% | 76.0% |
+| Training Difficulty | High | Lower (skip connections help) |
+| Computational Efficiency | Low | High |
+
+### Implementation Tips
+
+1. **Load Pre-trained ResNet-50**
+```python
+from tensorflow.keras.applications import ResNet50
+from tensorflow.keras.preprocessing import image
+
+# Load model
+model = ResNet50(weights='imagenet')
+
+# Preprocess image
+img_array = image.img_to_array(image.load_img('image.jpg', target_size=(224, 224)))
+from tensorflow.keras.applications.resnet50 import preprocess_input
+img_array = preprocess_input(img_array)
+img_array = np.expand_dims(img_array, axis=0)
+
+# Predict
+predictions = model.predict(img_array)
+```
+
+2. **Transfer Learning: Feature Extraction**
+```python
+base_model = ResNet50(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
+base_model.trainable = False
+
+model = Sequential([
+    base_model,
+    GlobalAveragePooling2D(),
+    Dense(256, activation='relu'),
+    Dropout(0.5),
+    Dense(num_classes, activation='softmax')
+])
+
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+```
+
+3. **Transfer Learning: Fine-tuning**
+```python
+# Unfreeze last few layers
+for layer in base_model.layers[-10:]:
+    layer.trainable = True
+
+# Use lower learning rate
+optimizer = Adam(learning_rate=1e-5)
+model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
+```
+
+### Training Configuration
+
+```python
+# Optimization
+Optimizer: SGD with momentum (0.9) or Adam
+Learning Rate: 0.1 (decay by 0.1 at epochs 30, 60, 90)
+Batch Size: 256 (on original hardware) or 32-64 (modern GPUs)
+Epochs: 100-200
+Weight Decay: 1e-4
+
+# Data Augmentation
+Random crop to 224×224
+Random horizontal flip
+Color jittering
+Normalization: ImageNet statistics
+```
+
+### Expected Performance
+
+- **Training from scratch**
+  - Time: 24-72 hours on single GPU
+  - Training Accuracy: 95%+
+  - Validation Accuracy: 76%+ (ImageNet)
+  
+- **Transfer Learning (Feature Extraction)**
+  - Time: 2-6 hours
+  - Accuracy improvement: 10-20% over random
+  - Convergence: 10-30 epochs
+
+- **Transfer Learning (Fine-tuning)**
+  - Time: 6-24 hours
+  - Accuracy improvement: 15-25% over random
+  - Convergence: 50-150 epochs
+
+### Advantages Over Previous Architectures
+
+1. **Enables Very Deep Networks**: Skip connections eliminate vanishing gradients
+2. **Fewer Parameters**: More efficient than VGG while being deeper
+3. **Better Generalization**: Improved accuracy on ImageNet
+4. **Widely Adopted**: Standard baseline for computer vision tasks
+5. **Easy to Extend**: Modular design for custom architectures
+
+### Common Pitfalls and Solutions
+
+| Issue | Cause | Solution |
+|-------|-------|----------|
+| Training doesn't converge | Learning rate too high | Reduce LR or use scheduler |
+| Validation loss increases | Overfitting with fine-tuning | Add regularization or use feature extraction |
+| Very slow initial training | Unfrozen deep layers | Keep most layers frozen initially |
+| Poor accuracy on custom data | Domain shift | Use aggressive data augmentation |
+| GPU out of memory | Large batch size | Reduce batch size to 16 or 32 |
+
+### Notebooks in This Repository
+
+- **[ResnetImplementation.ipynb](ResnetImplementation.ipynb)**: Core ResNet implementation and architecture details
+- **[ResNet_Transfer_RockPaperScissors.ipynb](ResNet_Transfer_RockPaperScissors.ipynb)**: Transfer learning example on custom dataset
+
+---
+
 ## Transfer Learning
 
 ### Why Use Transfer Learning?
@@ -751,4 +936,4 @@ optimizer = Adam(learning_rate=1e-6)
 
 ---
 
-_Last Updated: January 2024_
+_Last Updated: January 18, 2026_

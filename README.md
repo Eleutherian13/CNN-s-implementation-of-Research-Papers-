@@ -54,10 +54,13 @@ A comprehensive collection of implementations of seminal Convolutional Neural Ne
 - **Task**: High-performance image classification using depthwise separable convolutions
 - **Key Features**: Depthwise separable convolutions, larger model capacity with efficiency
 
-### 🔄 Xception with Transfer Learning
-
-- **Notebook**: [XceptionTransferLearning.ipynb](XceptionTransferLearning.ipynb)
-- **Task**: Applying pre-trained Xception models to custom datasets
+### � ResNet (2015)
+- **Paper**: [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
+- **Notebooks**: 
+  - [ResnetImplementation.ipynb](ResnetImplementation.ipynb) - Core ResNet architecture
+  - [ResNet_Transfer_RockPaperScissors.ipynb](ResNet_Transfer_RockPaperScissors.ipynb) - Transfer learning example
+- **Task**: Image classification with residual connections and transfer learning
+- **Key Features**: Skip connections, residual blocks, enables very deep networks (50/101/152 layers)
 - **Approach**: Fine-tuning and feature extraction strategies
 - **Use Cases**: Image classification on new domains with limited data
 
@@ -107,6 +110,8 @@ Research Papers Implementation/
 ├── InceptionV3Implementation.ipynb    # InceptionV3 implementation (if added)
 ├── XceptionPretrained.ipynb           # Xception pretrained model
 ├── XceptionTransferLearning.ipynb     # Transfer learning with Xception
+├── ResnetImplementation.ipynb         # ResNet core implementation
+├── ResNet_Transfer_RockPaperScissors.ipynb  # ResNet transfer learning
 │
 └── bestLeNet.h5                       # Pre-trained LeNet weights
 ```
@@ -172,6 +177,8 @@ print(f'Test Accuracy: {test_acc:.4f}')
 | VGG-16      | 2014 | 138M   | 16 layers | 71.3% (ImageNet) |
 | VGG-19      | 2014 | 144M   | 19 layers | 72.4% (ImageNet) |
 | Xception    | 2017 | 22.9M  | 71 layers | 79.0% (ImageNet) |
+| ResNet-50   | 2015 | 25.5M  | 50 layers | 76.0% (ImageNet) |
+| ResNet-101  | 2015 | 44.5M  | 101 layers | 77.4% (ImageNet) |
 
 ## 🤝 Contributing
 
@@ -273,5 +280,5 @@ If you use this implementation in your research, please cite:
 
 **Happy Learning! 🚀**
 
-_Last Updated: January 17, 2026_  
+_Last Updated: January 18, 2026_  
 _Status: Active Development_
