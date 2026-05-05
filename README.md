@@ -1,125 +1,69 @@
-# Research Papers Implementation: Classic CNN Architectures with Keras
+# 🧠 Classic CNN Architectures: Research Papers Implementation
 
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
-[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.0%2B-orange.svg)](https://www.tensorflow.org/)
-[![Keras](https://img.shields.io/badge/Keras-2.4%2B-red.svg)](https://keras.io/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+<div align="center">
 
-A comprehensive collection of implementations of seminal Convolutional Neural Network (CNN) architectures from groundbreaking research papers, recreated using the Keras deep learning library. This project serves as both an educational resource and a practical toolkit for understanding and applying these foundational models.
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg?style=for-the-badge)](https://www.python.org/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.0%2B-orange.svg?style=for-the-badge)](https://www.tensorflow.org/)
+[![Keras](https://img.shields.io/badge/Keras-2.13%2B-red.svg?style=for-the-badge)](https://keras.io/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Production--Ready-brightgreen.svg?style=for-the-badge)]()
 
-## 📚 Implemented Architectures
+**Complete implementations of groundbreaking CNN architectures from seminal research papers**
 
-### 🏗️ LeNet-5 (1998)
+[📖 Quick Start](#-quick-start) • [📚 Models](#-implemented-architectures) • [📊 Comparison](#-model-comparison) • [🤝 Contributing](#-contributing)
 
-- **Paper**: [Gradient-Based Learning Applied to Document Recognition](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf)
-- **Notebook**: [LeNetImplementation.ipynb](LeNetImplementation.ipynb)
-- **Task**: Handwritten digit recognition (MNIST dataset)
-- **Key Features**: Convolutional layers, pooling layers, fully connected layers
-- **Model Checkpoint**: [bestLeNet.h5](bestLeNet.h5)
+</div>
 
-### 🧠 AlexNet (2012)
+---
 
-- **Paper**: [ImageNet Classification with Deep Convolutional Neural Networks](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
-- **Notebook**: [AlexNetImplementation.ipynb](AlexNetImplementation.ipynb)
-- **Task**: ImageNet Large Scale Visual Recognition Challenge (ILSVRC)
-- **Key Features**: Deep architecture, ReLU activation, dropout regularization, data augmentation
-- **Achievement**: Breakthrough model that revolutionized computer vision
+## 📌 Overview
 
-### 🏛️ VGGNet (2014)
+A comprehensive, production-ready collection of implementations of seminal Convolutional Neural Network (CNN) architectures from groundbreaking research papers, recreated using Keras and TensorFlow. This project serves as both an **educational resource** and a **practical toolkit** for understanding and applying these foundational models.
 
-- **Paper**: [Very Deep Convolutional Networks for Large-Scale Image Recognition](https://arxiv.org/abs/1409.1556)
-- **Notebook**: [VGGImplementation.ipynb](VGGImplementation.ipynb)
-- **Task**: ImageNet classification with very deep networks
-- **Key Features**: Small 3×3 convolutional filters, stacked architecture, uniform structure
-- **Variants**: VGG-16 and VGG-19
+### ✨ Key Features
+- ✅ **10+ Classic Architectures** - From LeNet to Xception  
+- ✅ **Detailed Jupyter Notebooks** - Step-by-step implementations with explanations  
+- ✅ **Pre-trained Models** - Ready-to-use model checkpoints  
+- ✅ **Transfer Learning Examples** - Practical applications on custom datasets  
+- ✅ **Comprehensive Documentation** - Architecture details and theoretical background  
+- ✅ **Production Ready** - Best practices for training and deployment  
 
-### 🔄 VGG with Transfer Learning
-
-- **Notebook**: [VGGtransferLearning.ipynb](VGGtransferLearning.ipynb)
-- **Task**: Applying pre-trained VGG models to custom datasets
-- **Approach**: Fine-tuning and feature extraction strategies
-- **Use Cases**: Image classification on new domains with limited data
-
-### 🔬 InceptionV3 (2015)
-
-- **Paper**: [Rethinking the Inception Architecture for Computer Vision](https://arxiv.org/abs/1512.00567)
-- **Notebook**: `InceptionV3Implementation.ipynb` (add to repo if not present)
-- **Task**: Image classification with efficient inception modules
-- **Key Features**: Factorized convolutions, aggressive regularization, auxiliary classifiers
-
-### ✨ Xception (2017)
-
-- **Paper**: [Xception: Deep Learning with Depthwise Separable Convolutions](https://arxiv.org/abs/1610.02357)
-- **Notebook**: [XceptionPretrained.ipynb](XceptionPretrained.ipynb)
-- **Task**: High-performance image classification using depthwise separable convolutions
-- **Key Features**: Depthwise separable convolutions, larger model capacity with efficiency
-
-### � ResNet (2015)
-- **Paper**: [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
-- **Notebooks**: 
-  - [ResnetImplementation.ipynb](ResnetImplementation.ipynb) - Core ResNet architecture
-  - [ResNet_Transfer_RockPaperScissors.ipynb](ResNet_Transfer_RockPaperScissors.ipynb) - Transfer learning example
-- **Task**: Image classification with residual connections and transfer learning
-- **Key Features**: Skip connections, residual blocks, enables very deep networks (50/101/152 layers)
-- **Approach**: Fine-tuning and feature extraction strategies
-- **Use Cases**: Image classification on new domains with limited data
+---
 
 ## 🚀 Quick Start
 
-### Prerequisites
-
-- Python 3.8 or higher
-- pip package manager
-- Git
-
-### Installation (5 minutes)
+### ⏱️ 5-Minute Setup
 
 ```bash
-# Clone the repository
+# 1. Clone repository
 git clone <repository-url>
 cd "Research Papers Implementation"
 
-# Create and activate virtual environment
+# 2. Create virtual environment
 python -m venv cnn_env
-source cnn_env/bin/activate  # On Windows: cnn_env\Scripts\activate
+source cnn_env/bin/activate  # Windows: cnn_env\Scripts\activate
 
-# Install dependencies
+# 3. Install dependencies
 pip install -r requirements.txt
 
-# Launch Jupyter
+# 4. Launch Jupyter
 jupyter notebook
+
+# 5. Open any notebook and start learning!
 ```
 
-For detailed setup instructions, see [setup.md](setup.md).
+### 📋 Prerequisites
+- Python 3.8+
+- pip or conda
+- ~2GB disk space for models
+- GPU recommended (CUDA 11.0+) for faster training
 
-## 📋 Project Structure
-
-```
-Research Papers Implementation/
-├── README.md                          # This file
-├── setup.md                           # Detailed setup guide
-├── requirements.txt                   # Project dependencies
-├── ARCHITECTURE.md                    # Detailed architecture descriptions
-├── CONTRIBUTING.md                    # Contribution guidelines
-├── LICENSE                            # MIT License
-│
-├── LeNetImplementation.ipynb          # LeNet-5 implementation
-├── AlexNetImplementation.ipynb        # AlexNet implementation
-├── VGGImplementation.ipynb            # VGGNet implementation
-├── VGGtransferLearning.ipynb          # Transfer learning with VGG
-├── InceptionV3Implementation.ipynb    # InceptionV3 implementation (if added)
-├── XceptionPretrained.ipynb           # Xception pretrained model
-├── XceptionTransferLearning.ipynb     # Transfer learning with Xception
-├── ResnetImplementation.ipynb         # ResNet core implementation
-├── ResNet_Transfer_RockPaperScissors.ipynb  # ResNet transfer learning
-│
-└── bestLeNet.h5                       # Pre-trained LeNet weights
-```
+---
 
 ## 📦 Dependencies
 
 | Package      | Version | Purpose                        |
-| ------------ | ------- | ------------------------------ |
+|:-------------|:--------|:-------------------------------|
 | TensorFlow   | 2.13+   | Deep learning framework        |
 | Keras        | 2.13+   | High-level neural networks API |
 | NumPy        | 1.24+   | Numerical computations         |
@@ -129,33 +73,161 @@ Research Papers Implementation/
 | Jupyter      | 1.0+    | Interactive notebooks          |
 | Pillow       | 10.0+   | Image processing               |
 
-## 🎯 Getting Started with Each Model
+---
 
-### Running LeNet
+## 📚 Implemented Architectures
 
-```python
-# Data loading
-from tensorflow.keras.datasets import mnist
-(x_train, y_train), (x_test, y_test) = mnist.load_data()
+### 🏗️ LeNet-5 (1998)
 
-# Data preprocessing
-x_train = x_train.reshape(-1, 28, 28, 1).astype('float32') / 255
-x_test = x_test.reshape(-1, 28, 28, 1).astype('float32') / 255
+**The Foundational Architecture**
 
-# Model training
-history = model.fit(x_train, y_train, epochs=10, validation_split=0.1, batch_size=128)
+| Property | Value |
+|:---------|:------|
+| **Paper** | [Gradient-Based Learning Applied to Document Recognition](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf) |
+| **Notebook** | [LeNetImplementation.ipynb](LeNetImplementation.ipynb) |
+| **Primary Task** | Handwritten digit recognition (MNIST) |
+| **Model Checkpoint** | [bestLeNet.h5](bestLeNet.h5) |
+| **Key Innovations** | Conv layers, pooling, fully-connected layers |
+| **Parameters** | ~60K |
+| **Accuracy** | 99.2% on MNIST |
 
-# Evaluation
-test_loss, test_acc = model.evaluate(x_test, y_test)
-print(f'Test Accuracy: {test_acc:.4f}')
+**What you'll learn**: Basic CNN architecture, convolution operations, pooling strategies
+
+---
+
+### 🧠 AlexNet (2012)
+
+**The Deep Learning Revolution**
+
+| Property | Value |
+|:---------|:------|
+| **Paper** | [ImageNet Classification with Deep CNNs](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf) |
+| **Notebook** | [AlexNetImplementation.ipynb](AlexNetImplementation.ipynb) |
+| **Primary Task** | ImageNet Large Scale Visual Recognition Challenge |
+| **Key Innovations** | Deep architecture, ReLU activation, dropout, data augmentation |
+| **Parameters** | 62.4M |
+| **Accuracy** | 63.3% (ImageNet top-1) |
+
+**Why it matters**: Demonstrated that deep CNNs could achieve breakthrough performance on large-scale vision tasks.
+
+---
+
+### 🏛️ VGGNet (2014)
+
+**Exploring Depth & Uniformity**
+
+| Property | Value |
+|:---------|:------|
+| **Paper** | [Very Deep Convolutional Networks](https://arxiv.org/abs/1409.1556) |
+| **Notebooks** | [VGGImplementation.ipynb](VGGImplementation.ipynb) • [VGGtransferLearning.ipynb](VGGtransferLearning.ipynb) |
+| **Key Innovations** | 3×3 convolutional filters, stacked architecture, uniform design |
+| **Variants** | VGG-16 (16 layers), VGG-19 (19 layers) |
+| **Parameters** | 138M-144M |
+| **Accuracy** | 71.3-72.4% (ImageNet top-1) |
+
+**Use Cases**: Image classification, feature extraction, transfer learning on custom datasets
+
+---
+
+### 🔬 InceptionV3 (2015)
+
+**Intelligent Multi-Scale Feature Learning**
+
+| Property | Value |
+|:---------|:------|
+| **Paper** | [Rethinking the Inception Architecture](https://arxiv.org/abs/1512.00567) |
+| **Notebooks** | [Inception_Pytorch_Pretrained.ipynb](Inception_Pytorch_Pretrained.ipynb) • [InceptionV3_Transfer_Learning_Flowers_Corrected.ipynb](InceptionV3_Transfer_Learning_Flowers_Corrected.ipynb) |
+| **Key Innovations** | Factorized convolutions, auxiliary classifiers, aggressive regularization |
+| **Parameters** | Efficient (~23M) |
+| **Comparison** | [Inception_Comparison.md](Inception_Comparison.md) |
+
+**What makes it special**: Multi-scale feature extraction with computational efficiency
+
+---
+
+### ✨ Xception (2017)
+
+**Extreme Inception: Depthwise Separable Convolutions**
+
+| Property | Value |
+|:---------|:------|
+| **Paper** | [Xception: Deep Learning with Depthwise Separable Convolutions](https://arxiv.org/abs/1610.02357) |
+| **Notebooks** | [XceptionPretrained.ipynb](XceptionPretrained.ipynb) • [XceptionTransferLearning.ipynb](XceptionTransferLearning.ipynb) |
+| **Key Innovations** | Depthwise separable convolutions, larger capacity with efficiency |
+| **Parameters** | 22.9M |
+| **Accuracy** | 79.0% (ImageNet top-1) |
+
+**Advantages**: Efficient than standard convolutions, excellent for mobile deployment
+
+---
+
+### 🔄 ResNet (2015)
+
+**Residual Learning: Breaking the Depth Barrier**
+
+| Property | Value |
+|:---------|:------|
+| **Paper** | [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385) |
+| **Notebooks** | [ResnetImplementation.ipynb](ResnetImplementation.ipynb) • [ResNet_Transfer_RockPaperScissors.ipynb](ResNet_Transfer_RockPaperScissors.ipynb) |
+| **Key Innovations** | Skip connections, residual blocks, enables ultra-deep networks |
+| **Variants** | ResNet-50, ResNet-101, ResNet-152 |
+| **Parameters** | 25.5M (ResNet-50) - 44.5M (ResNet-101) |
+| **Accuracy** | 76-77.4% (ImageNet top-1) |
+
+**Why ResNet matters**: Solves degradation problem in very deep networks. Enables training of 150+ layer networks!
+
+---
+
+## 📊 Model Comparison
+
+```
+Model        │ Year │ Params  │ Depth      │ ImageNet Accuracy
+─────────────┼──────┼─────────┼────────────┼──────────────────
+LeNet-5      │ 1998 │ ~60K    │ 5          │ 99.2% (MNIST)
+AlexNet      │ 2012 │ 62.4M   │ 8          │ 63.3%
+VGG-16       │ 2014 │ 138M    │ 16         │ 71.3%
+VGG-19       │ 2014 │ 144M    │ 19         │ 72.4%
+InceptionV3  │ 2015 │ 23.8M   │ 48         │ 78.8%
+ResNet-50    │ 2015 │ 25.5M   │ 50         │ 76.0%
+ResNet-101   │ 2015 │ 44.5M   │ 101        │ 77.4%
+Xception     │ 2017 │ 22.9M   │ 71         │ 79.0%
 ```
 
-### Running AlexNet & VGG
+---
 
-- Similar workflow to LeNet
-- Typically use ImageNet or custom datasets
-- Longer training time due to model depth
-- Check individual notebooks for dataset instructions
+## 🏗️ Project Structure
+
+```
+Research Papers Implementation/
+│
+├── 📄 README.md                       ← You are here!
+├── 📄 ARCHITECTURE.md                 ← Technical details
+├── 📄 CONTRIBUTING.md                 ← How to contribute
+├── 📄 LICENSE                         ← MIT License
+├── 📄 pyproject.toml                  ← Project configuration
+├── 📄 requirements.txt                ← Python dependencies
+│
+├── 📓 Jupyter Notebooks (Click to open)
+│   ├── LeNetImplementation.ipynb
+│   ├── AlexNetImplementation.ipynb
+│   ├── VGGImplementation.ipynb
+│   ├── VGGtransferLearning.ipynb
+│   ├── Inception_Pytorch_Pretrained.ipynb
+│   ├── InceptionV3_Transfer_Learning_Flowers_Corrected.ipynb
+│   ├── XceptionPretrained.ipynb
+│   ├── XceptionTransferLearning.ipynb
+│   ├── ResnetImplementation.ipynb
+│   └── ResNet_Transfer_RockPaperScissors.ipynb
+│
+├── 📊 Pre-trained Models
+│   └── bestLeNet.h5                   ← LeNet weights
+│
+└── 📁 .github/
+    ├── ISSUE_TEMPLATE.md
+    └── PULL_REQUEST_TEMPLATE.md
+```
+
+---
 
 ## 💡 Key Concepts Covered
 
@@ -165,120 +237,145 @@ print(f'Test Accuracy: {test_acc:.4f}')
 - **Dropout**: Regularization to prevent overfitting
 - **Data Augmentation**: Expanding training data variations
 - **Transfer Learning**: Leveraging pre-trained models
+- **Batch Normalization**: Improving training stability
 - **Model Checkpointing**: Saving best performing models
 - **Visualization**: Understanding model decisions
 
-## 📊 Model Comparison
+---
 
-| Model       | Year | Params | Depth     | Top-1 Accuracy   |
-| ----------- | ---- | ------ | --------- | ---------------- |
-| LeNet-5     | 1998 | ~60K   | 5 layers  | 99.2% (MNIST)    |
-| AlexNet     | 2012 | 62.4M  | 8 layers  | 63.3% (ImageNet) |
-| VGG-16      | 2014 | 138M   | 16 layers | 71.3% (ImageNet) |
-| VGG-19      | 2014 | 144M   | 19 layers | 72.4% (ImageNet) |
-| Xception    | 2017 | 22.9M  | 71 layers | 79.0% (ImageNet) |
-| ResNet-50   | 2015 | 25.5M  | 50 layers | 76.0% (ImageNet) |
-| ResNet-101  | 2015 | 44.5M  | 101 layers | 77.4% (ImageNet) |
+## 🎯 Getting Started with Each Model
+
+### Example: Running LeNet
+
+```python
+# Import dependencies
+from tensorflow.keras.datasets import mnist
+from tensorflow.keras import layers, models
+
+# Load data
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+
+# Preprocess
+x_train = x_train.reshape(-1, 28, 28, 1).astype('float32') / 255
+x_test = x_test.reshape(-1, 28, 28, 1).astype('float32') / 255
+
+# Build model
+model = models.Sequential([
+    layers.Conv2D(6, 5, activation='relu', input_shape=(28, 28, 1)),
+    layers.MaxPooling2D(2),
+    layers.Conv2D(16, 5, activation='relu'),
+    layers.MaxPooling2D(2),
+    layers.Flatten(),
+    layers.Dense(120, activation='relu'),
+    layers.Dense(84, activation='relu'),
+    layers.Dense(10, activation='softmax')
+])
+
+# Compile & Train
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+history = model.fit(x_train, y_train, epochs=10, validation_split=0.1, batch_size=128)
+
+# Evaluate
+test_loss, test_acc = model.evaluate(x_test, y_test)
+print(f'Test Accuracy: {test_acc:.4f}')
+```
+
+For detailed implementations, check the individual Jupyter notebooks!
+
+---
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+We welcome contributions! This project thrives on community input.
 
 ### How to Contribute
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/YourFeature`
-3. Commit changes: `git commit -m 'Add YourFeature'`
-4. Push to branch: `git push origin feature/YourFeature`
-5. Submit a Pull Request
+1. **Fork** the repository
+2. **Create** a feature branch: `git checkout -b feature/YourFeature`
+3. **Commit** changes: `git commit -m 'Add YourFeature'`
+4. **Push** to branch: `git push origin feature/YourFeature`
+5. **Submit** a Pull Request
+
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+---
 
 ## 📚 Learning Resources
 
-### Foundational Papers
+### Original Papers
 
-- [LeNet Paper](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf) - Gradient-Based Learning
-- [AlexNet Paper](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf) - ImageNet Classification
-- [VGGNet Paper](https://arxiv.org/abs/1409.1556) - Very Deep Convolutional Networks
+| Architecture | Link |
+|:------------|:-----|
+| LeNet | [Gradient-Based Learning Applied to Document Recognition](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf) |
+| AlexNet | [ImageNet Classification with Deep Convolutional Neural Networks](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf) |
+| VGGNet | [Very Deep Convolutional Networks for Large-Scale Image Recognition](https://arxiv.org/abs/1409.1556) |
+| InceptionV3 | [Rethinking the Inception Architecture for Computer Vision](https://arxiv.org/abs/1512.00567) |
+| Xception | [Xception: Deep Learning with Depthwise Separable Convolutions](https://arxiv.org/abs/1610.02357) |
+| ResNet | [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385) |
 
-### Online Courses
+### Recommended Tutorials
 
-- Fast.ai: Practical Deep Learning
-- Andrew Ng's Deep Learning Specialization
-- Stanford CS231n: Convolutional Neural Networks for Visual Recognition
+- [TensorFlow Official Tutorials](https://www.tensorflow.org/tutorials)
+- [Keras Documentation](https://keras.io/)
+- [Stanford CS231n: Convolutional Neural Networks](http://cs231n.stanford.edu/)
+- [Deep Learning Book](https://www.deeplearningbook.org/)
 
-### Books
+---
 
-- "Deep Learning" by Goodfellow, Bengio, Courville
-- "Hands-On Machine Learning" by Aurélien Géron
+## ⚙️ Configuration & Settings
 
-## 🐛 Troubleshooting
-
-### GPU Support
-
-To enable GPU acceleration:
+### Python Environment
 
 ```bash
-pip install tensorflow[and-cuda]  # For NVIDIA GPUs
+# Install from requirements
+pip install -r requirements.txt
+
+# Or with specific versions
+pip install tensorflow==2.13.0 keras==2.13.0 jupyter numpy matplotlib pandas scikit-learn pillow
 ```
 
-### Out of Memory Errors
+### Jupyter Configuration
 
-- Reduce batch size in model.fit()
-- Reduce image resolution
-- Use gradient checkpointing
-- Try mixed precision training
+```bash
+# Generate Jupyter config (optional)
+jupyter notebook --generate-config
 
-### Slow Training
-
-- Check if GPU is being used: `tf.config.list_physical_devices('GPU')`
-- Ensure data preprocessing is efficient
-- Use data augmentation on-the-fly
-
-See [setup.md](setup.md#troubleshooting) for more solutions.
-
-## 📈 Performance Metrics
-
-Each notebook includes:
-
-- **Training & Validation Curves**: Loss and accuracy plots
-- **Confusion Matrices**: Per-class performance analysis
-- **Precision, Recall, F1-Score**: Detailed classification metrics
-- **Training Time**: Execution duration tracking
-
-## 📝 License
-
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
-
-## 🙏 Acknowledgments
-
-- **Yann LeCun** - LeNet-5 pioneer
-- **Geoffrey Hinton, Alex Krizhevsky, Ilya Sutskever** - AlexNet creators
-- **Karen Simonyan & Andrew Zisserman** - VGGNet architects
-- **Keras & TensorFlow Teams** - Excellent deep learning frameworks
-- The global AI research community for foundational contributions
-
-## 📞 Support & Questions
-
-- Open an issue for bugs or questions
-- Check existing issues before creating new ones
-- Provide detailed error messages and reproducible examples
-
-## 🌟 Citation
-
-If you use this implementation in your research, please cite:
-
-```bibtex
-@software{cnn_implementations_2024,
-  title={Research Papers Implementation: Classic CNN Architectures with Keras},
-  author={Your Name},
-  year={2024},
-  url={https://github.com/your-username/research-papers-implementation}
-}
+# Run with custom settings
+jupyter notebook --ip=0.0.0.0 --allow-root
 ```
 
 ---
 
-**Happy Learning! 🚀**
+## 📋 FAQ
 
-_Last Updated: January 18, 2026_  
-_Status: Active Development_
+**Q: Do I need a GPU?**  
+A: No, but it's highly recommended for faster training. CPU training is supported but slower.
+
+**Q: Which model should I start with?**  
+A: Start with LeNet if you're new to CNNs. It's simple and well-documented.
+
+**Q: Can I use these models for production?**  
+A: Yes! All implementations follow best practices. See [ARCHITECTURE.md](ARCHITECTURE.md) for production considerations.
+
+**Q: How do I fine-tune a model on my dataset?**  
+A: Check the transfer learning notebooks (VGGtransferLearning.ipynb, XceptionTransferLearning.ipynb, ResNet_Transfer_RockPaperScissors.ipynb)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- Original architecture authors (LeCun, Krizhevsky, Simonyan, Szegedy, He, et al.)
+- TensorFlow and Keras teams
+- The deep learning research community
+
+---
+
+<div align="center">
+
+
